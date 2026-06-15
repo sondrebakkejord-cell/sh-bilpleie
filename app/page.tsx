@@ -146,7 +146,6 @@ export default function Home() {
               { src: `${IMG}/tesla.jpeg`, alt: "Tesla etter detailing" },
               { src: `${IMG}/bmw.jpeg`, alt: "BMW polert og coatet hos SH Bilpleie" },
               { src: `${IMG}/brabus1.jpeg`, alt: "Brabus detailing-jobb" },
-              { src: `${IMG}/polish.jpeg`, alt: "Polering av lakk" },
               { src: `${IMG}/IMG_4423.jpeg`, alt: "Detailing-prosjekt fra SH Bilpleie" },
             ].map((img, i) => (
               <div key={i} className="aspect-[4/3] overflow-hidden bg-stone-800 group">
