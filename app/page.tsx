@@ -41,11 +41,11 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto px-6 w-full">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-8 font-mono text-[11px] uppercase tracking-[0.4em] text-red-400">
+            <div className="flex items-center gap-3 mb-8 font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400">
               <span className="h-px w-10 bg-red-500" />
-              <span>SH/01 · Detailing</span>
-              <span className="text-stone-500">·</span>
-              <span className="text-stone-400">Vesterålen</span>
+              <span>SH/01 · Bilpleie</span>
+              <span className="text-stone-600">·</span>
+              <span>Vesterålen</span>
             </div>
             <h1
               className="font-bold mb-8 text-white"
@@ -55,12 +55,13 @@ export default function Home() {
                 lineHeight: 0.92,
               }}
             >
-              Lakk-foredling<br />
-              <span className="text-red-500">på proff-nivå.</span>
+              Bilpleie.<br />
+              <span className="italic font-light text-stone-300">Slik proffene gjør det.</span>
             </h1>
             <p className="text-lg md:text-xl text-stone-200 max-w-xl mb-10 leading-relaxed">
-              RUPES Bigfoot. CarPro coating som varer i flere år. Vi behandler
-              Brabus, Ferrari og Tesla — i Vesterålen.
+              Polering, coating, interiørrens, skinnbehandling og ozon. Vi tar bilen
+              din — fra hverdagsbil til exotic — og leverer den slik den ble levert
+              fra fabrikken.
             </p>
             <div className="flex flex-wrap gap-3 items-center">
               <a
@@ -109,28 +110,27 @@ export default function Home() {
       <section className="py-28 px-6 bg-stone-950">
         <div className="max-w-5xl mx-auto grid md:grid-cols-12 gap-12 items-start">
           <div className="md:col-span-3 md:sticky md:top-24">
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-red-500">SH/02</p>
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-500 mt-1">Hvem vi er</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400">SH/02</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-600 mt-1">Hvem vi er</p>
           </div>
           <div className="md:col-span-9">
             <h2
               className="font-bold mb-10 leading-[1.02] text-white"
               style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", letterSpacing: "-0.025em" }}
             >
-              I Vesterålen er det få som vet hva en{" "}
-              <span className="text-red-500">RUPES Bigfoot 15</span>{" "}
-              er for noe. <span className="text-stone-500">Vi vet.</span>
+              I Vesterålen er det få som tar
+              bilpleie helt seriøst.{" "}
+              <span className="text-stone-500">Vi gjør det.</span>
             </h2>
             <div className="space-y-5 text-lg text-stone-300 leading-relaxed max-w-2xl">
               <p>
-                SH Bilpleie er et profesjonelt detailing-verksted basert i Vesterålen. Vi
-                bruker samme utstyr og produkter som proff-detailere over hele verden —
-                RUPES Bigfoot polerere, CarPro keramisk coating, Koch-Chemie kjemi.
+                SH Bilpleie er et profesjonelt verksted basert i Vesterålen. Vi tar oss av
+                hele bilen — lakk, interiør, skinn og lukt — med utstyr og produkter
+                proff-detailere bruker over hele verden.
               </p>
               <p>
-                Vi tar oss av alt fra hverdagsbilen til Brabus og Ferrari. Resultatet skal
-                se ut som dagen den ble levert fra fabrikken — uansett om bilen er ny eller
-                ti år gammel.
+                Fra full keramisk coating til en grundig interiør- eller ozonbehandling.
+                Vi gjør jobben skikkelig, uansett om bilen er ny eller ti år gammel.
               </p>
             </div>
           </div>
@@ -142,17 +142,18 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-red-500 mb-4">SH/03 · Metodikk</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/03 · Metodikk</p>
               <h2
                 className="font-bold leading-[1.02] text-white"
                 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}
               >
-                Detailing-<br />protokollen.
+                Slik jobber vi<br />med en bil.
               </h2>
             </div>
             <p className="max-w-md text-stone-400 leading-relaxed">
-              Slik tar vi en bil fra «ganske ren» til «som ny fra fabrikken». Hver
-              fase har sin prosess og sine produkter.
+              Et eksempel: full lakk-foredling med keramisk coating. Andre tjenester
+              følger samme tilnærming — grundig inspeksjon, riktig produkt, ferdig
+              jobb.
             </p>
           </div>
 
@@ -191,7 +192,7 @@ export default function Home() {
             ].map((step) => (
               <li key={step.n} className="bg-stone-900 p-8 relative">
                 <span
-                  className="block font-mono text-red-500 mb-4 font-bold"
+                  className="block font-mono text-stone-700 mb-4 font-bold"
                   style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em", lineHeight: 1 }}
                 >
                   P/{step.n}
@@ -208,12 +209,12 @@ export default function Home() {
       <section id="tjenester" className="py-24 px-6 bg-stone-950">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-red-500 mb-4">SH/04 · Tjenester</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/04 · Tjenester</p>
             <h2
               className="font-bold leading-[1.02] text-white max-w-3xl"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}
             >
-              Det vi gjør — fra hverdagsbilen til <span className="text-red-500">superbilen</span>.
+              Det vi gjør — fra hverdagsbilen til <em className="italic font-light text-stone-300">superbilen</em>.
             </h2>
           </div>
 
@@ -236,7 +237,7 @@ export default function Home() {
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <span className="absolute top-3 left-3 inline-flex items-center px-2 py-1 bg-stone-950/80 backdrop-blur-sm text-red-500 text-[10px] uppercase tracking-[0.3em] font-bold font-mono">
+                  <span className="absolute top-3 left-3 inline-flex items-center px-2 py-1 bg-stone-950/80 backdrop-blur-sm text-stone-300 text-[10px] uppercase tracking-[0.3em] font-bold font-mono">
                     T/{s.num}
                   </span>
                 </div>
@@ -260,12 +261,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-red-500 mb-4">SH/05 · Referanser</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/05 · Referanser</p>
               <h2
                 className="font-bold leading-[1.02] text-white"
                 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}
               >
-                Noen av bilene vi har<br />lakk-foredlet.
+                Noen av bilene<br />som har vært innom.
               </h2>
             </div>
             <p className="max-w-sm text-stone-400 leading-relaxed">
@@ -292,7 +293,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="font-mono text-[10px] text-red-500 uppercase tracking-[0.3em] mb-1">{c.marque}</p>
+                  <p className="font-mono text-[10px] text-stone-300 uppercase tracking-[0.3em] mb-1">{c.marque}</p>
                   <p className="text-white font-semibold text-sm">{c.model}</p>
                 </div>
               </article>
@@ -305,7 +306,7 @@ export default function Home() {
       <section className="py-20 px-6 bg-stone-950">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10 text-center">
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-red-500 mb-4">SH/06 · Verktøy &amp; sertifiseringer</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/06 · Verktøy &amp; sertifiseringer</p>
             <h2
               className="font-bold leading-tight text-white"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", letterSpacing: "-0.025em" }}
@@ -349,7 +350,7 @@ export default function Home() {
       <section id="kontakt" className="py-28 px-6 bg-stone-950 border-t border-stone-800">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-red-500 mb-4">SH/07 · Bestilling</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/07 · Bestilling</p>
             <h2
               className="font-bold mb-6 leading-[1.05] text-white"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}
