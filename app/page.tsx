@@ -27,9 +27,9 @@ export default function Home() {
       {/* Hero */}
       <section className="relative h-screen min-h-[700px] flex items-end overflow-hidden bg-stone-950">
         <img
-          src={`${IMG}/IMG_0327.jpg`}
-          alt="SH Bilpleie — bilpleie og keramisk coating i Vesterålen"
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          src={`${IMG}/ff.jpeg`}
+          alt="Rød Ferrari etter bilpleie hos SH Bilpleie i Vesterålen"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
           loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-stone-950/40" />
@@ -97,19 +97,29 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-stone-800">
             {[
-              { num: "01", title: "Polering", desc: "Fjerner riper og oksidasjon. Beskytter lakken og bringer glansen tilbake." },
-              { num: "02", title: "Keramisk coating", desc: "Langtidsbeskyttelse av lakken, dypere glans, og enklere vask i lang tid framover." },
-              { num: "03", title: "Lakk­korrigering", desc: "Vi fjerner riper, swirls og mindre skader. For deg som vil ha lakken som ny." },
-              { num: "04", title: "Interiørrens", desc: "Seter, gulvtepper og dashbord rengjøres grundig — bilen lukter og ser fersk ut igjen." },
-              { num: "05", title: "Skinn­behandling", desc: "Rens, conditioner og beskyttelse av skinninteriør. Forhindrer sprekker og falming." },
-              { num: "06", title: "Ozon­behandling", desc: "Fjerner lukt fra røyk, mat, dyr og fukt — miljøvennlig og effektivt." },
-              { num: "07", title: "Folie­montering", desc: "Montering av dekorfolie, logoer og wraps med presisjon og uten luftbobler." },
-              { num: "08", title: "Maskinutleie", desc: "Vi leier ut tekstilrensere og ozongeneratorer for de som vil gjøre jobben selv." },
+              { num: "01", title: "Polering", desc: "Fjerner riper og oksidasjon. Beskytter lakken og bringer glansen tilbake.", img: `${IMG}/IMG_0735.jpeg` },
+              { num: "02", title: "Keramisk coating", desc: "Langtidsbeskyttelse av lakken, dypere glans, og enklere vask i lang tid framover.", img: `${IMG}/coating.jpg` },
+              { num: "03", title: "Lakk­korrigering", desc: "Vi fjerner riper, swirls og mindre skader. For deg som vil ha lakken som ny.", img: `${IMG}/Bilder%20nettside.jpeg` },
+              { num: "04", title: "Interiørrens", desc: "Seter, gulvtepper og dashbord rengjøres grundig — bilen lukter og ser fersk ut igjen.", img: `${IMG}/unsplash_xz4U-ecu8E0.jpg` },
+              { num: "05", title: "Skinn­behandling", desc: "Rens, conditioner og beskyttelse av skinninteriør. Forhindrer sprekker og falming.", img: `${IMG}/unsplash_4Lh-4xE5_Js.jpg` },
+              { num: "06", title: "Ozon­behandling", desc: "Fjerner lukt fra røyk, mat, dyr og fukt — miljøvennlig og effektivt.", img: `${IMG}/unsplash_KpSdMeuaHRg.jpg` },
+              { num: "07", title: "Folie­montering", desc: "Montering av dekorfolie, logoer og wraps med presisjon og uten luftbobler.", img: `${IMG}/unsplash_osAdNaRHxzo.jpg` },
+              { num: "08", title: "Maskinutleie", desc: "Vi leier ut tekstilrensere og ozongeneratorer for de som vil gjøre jobben selv.", img: `${IMG}/unsplash_Iu6parQAO-U.jpg` },
             ].map((s) => (
-              <div key={s.num} className="bg-stone-900 p-7 hover:bg-stone-950 transition-colors">
-                <p className="text-xs font-mono text-red-500 mb-3 tracking-widest">S/{s.num}</p>
-                <h3 className="text-lg font-bold mb-2 text-white">{s.title}</h3>
-                <p className="text-sm text-stone-400 leading-relaxed">{s.desc}</p>
+              <div key={s.num} className="bg-stone-900 hover:bg-stone-950 transition-colors flex flex-col">
+                <div className="aspect-[16/10] overflow-hidden bg-stone-800">
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-7 flex-1">
+                  <p className="text-xs font-mono text-red-500 mb-3 tracking-widest">S/{s.num}</p>
+                  <h3 className="text-lg font-bold mb-2 text-white">{s.title}</h3>
+                  <p className="text-sm text-stone-400 leading-relaxed">{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
