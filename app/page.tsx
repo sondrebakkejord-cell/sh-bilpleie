@@ -17,7 +17,6 @@ export default function Home() {
             <div className="text-[10px] uppercase tracking-[0.4em] text-stone-400 mt-0.5 font-mono">Vesterålen</div>
           </div>
           <div className="hidden md:flex items-center gap-10 text-sm">
-            <a href="#protokoll" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Protokoll</a>
             <a href="#tjenester" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Tjenester</a>
             <a href="#biler" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Bilene</a>
             <a href="#kontakt" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Kontakt</a>
@@ -43,9 +42,7 @@ export default function Home() {
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-8 font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400">
               <span className="h-px w-10 bg-red-500" />
-              <span>SH/01 · Bilpleie</span>
-              <span className="text-stone-600">·</span>
-              <span>Vesterålen</span>
+              <span>Bilpleie · Vesterålen</span>
             </div>
             <h1
               className="font-bold mb-8 text-white"
@@ -72,10 +69,10 @@ export default function Home() {
                 <span className="text-lg font-mono">915 34 263</span>
               </a>
               <a
-                href="#protokoll"
+                href="#tjenester"
                 className="inline-block px-7 py-4 border border-stone-50/25 text-stone-50 hover:bg-stone-50 hover:text-stone-950 transition-colors uppercase tracking-[0.25em] text-xs font-semibold"
               >
-                Se protokollen
+                Se tjenester
               </a>
             </div>
           </div>
@@ -110,8 +107,7 @@ export default function Home() {
       <section className="py-28 px-6 bg-stone-950">
         <div className="max-w-5xl mx-auto grid md:grid-cols-12 gap-12 items-start">
           <div className="md:col-span-3 md:sticky md:top-24">
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400">SH/02</p>
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-600 mt-1">Hvem vi er</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400">— Hvem vi er</p>
           </div>
           <div className="md:col-span-9">
             <h2
@@ -137,79 +133,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Protokoll — signature methodology section */}
-      <section id="protokoll" className="py-24 px-6 bg-stone-900 border-t border-stone-800">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/03 · Metodikk</p>
-              <h2
-                className="font-bold leading-[1.02] text-white"
-                style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}
-              >
-                Slik jobber vi<br />med en bil.
-              </h2>
-            </div>
-            <p className="max-w-md text-stone-400 leading-relaxed">
-              Et eksempel: full lakk-foredling med keramisk coating. Andre tjenester
-              følger samme tilnærming — grundig inspeksjon, riktig produkt, ferdig
-              jobb.
-            </p>
-          </div>
-
-          <ol className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-800">
-            {[
-              {
-                n: "01",
-                title: "Inspeksjon",
-                desc: "Vi går over lakken med lys og måler dybden. Du får vite hva som er mulig — og hva som ikke er det.",
-              },
-              {
-                n: "02",
-                title: "Foamvask",
-                desc: "pH-nøytral skum, to-bøtte-vask med microfiber. Vi fjerner all overflate-skitt før vi tar i lakken.",
-              },
-              {
-                n: "03",
-                title: "Dekontaminering",
-                desc: "Tjære, jernspon og industrifallout fjernes med Iron-X og clay bar. Lakken må være helt ren før vi polerer.",
-              },
-              {
-                n: "04",
-                title: "Lakk­korrigering",
-                desc: "RUPES Bigfoot 15 på riktig pute og polish. Vi fjerner riper, swirls og holografi — uten å redusere lakk-tykkelsen unødvendig.",
-              },
-              {
-                n: "05",
-                title: "Keramisk coating",
-                desc: "CarPro CQuartz eller tilsvarende. Lakken får et flerårig beskyttende lag som gjør vask raskere og glansen dypere.",
-              },
-              {
-                n: "06",
-                title: "Overlevering",
-                desc: "Ren bil, beskyttet lakk, og en pleieguide. Vi gir deg konkrete råd for å holde resultatet i månedene som kommer.",
-              },
-            ].map((step) => (
-              <li key={step.n} className="bg-stone-900 p-8 relative">
-                <span
-                  className="block font-mono text-stone-700 mb-4 font-bold"
-                  style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", letterSpacing: "-0.04em", lineHeight: 1 }}
-                >
-                  P/{step.n}
-                </span>
-                <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
-                <p className="text-sm text-stone-400 leading-relaxed">{step.desc}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
       {/* Tjenester */}
       <section id="tjenester" className="py-24 px-6 bg-stone-950">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/04 · Tjenester</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">— Tjenester</p>
             <h2
               className="font-bold leading-[1.02] text-white max-w-3xl"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}
@@ -237,9 +165,6 @@ export default function Home() {
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <span className="absolute top-3 left-3 inline-flex items-center px-2 py-1 bg-stone-950/80 backdrop-blur-sm text-stone-300 text-[10px] uppercase tracking-[0.3em] font-bold font-mono">
-                    T/{s.num}
-                  </span>
                 </div>
                 <div className="p-6 flex-1">
                   <h3 className="text-base font-bold mb-2 text-white">{s.title}</h3>
@@ -261,7 +186,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/05 · Referanser</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">— Referanser</p>
               <h2
                 className="font-bold leading-[1.02] text-white"
                 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}
@@ -306,7 +231,7 @@ export default function Home() {
       <section className="py-20 px-6 bg-stone-950">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10 text-center">
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/06 · Verktøy &amp; sertifiseringer</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">— Verktøy &amp; sertifiseringer</p>
             <h2
               className="font-bold leading-tight text-white"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", letterSpacing: "-0.025em" }}
@@ -350,7 +275,7 @@ export default function Home() {
       <section id="kontakt" className="py-28 px-6 bg-stone-950 border-t border-stone-800">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">SH/07 · Bestilling</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">— Bestilling</p>
             <h2
               className="font-bold mb-6 leading-[1.05] text-white"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}
