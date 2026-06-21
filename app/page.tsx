@@ -17,10 +17,29 @@ const SERVICES = [
 ];
 
 const EXTRA = [
-  { title: "Ozonbehandling", desc: "Fjerner lukt fra røyk, dyr, fukt og mat — på molekylært nivå." },
-  { title: "Foliemontering", desc: "Dekorfolie og logoer monteres med presisjon — uten luftbobler." },
-  { title: "Maskinutleie", desc: "Tekstilrensere og ozongeneratorer for de som vil gjøre jobben selv." },
+  { icon: "ozon", title: "Ozonbehandling", desc: "Fjerner røyk-, dyre-, fukt- og matlukt på molekylært nivå — bilen kjennes helt fersk igjen. Perfekt før salg eller etter et uhell." },
+  { icon: "folie", title: "Foliemontering", desc: "Dekorfolie, striper og logoer monteres med presisjon — helt uten luftbobler eller skjeve kanter." },
+  { icon: "maskin", title: "Maskinutleie", desc: "Lei tekstilrensere og ozongeneratorer av oss og gjør jobben selv — med samme proff-utstyr som vi bruker." },
 ];
+
+function ServiceIcon({ type }: { type: string }) {
+  const p = {
+    width: 30, height: 30, viewBox: "0 0 24 24", fill: "none",
+    stroke: "currentColor", strokeWidth: 1.6,
+    strokeLinecap: "round" as const, strokeLinejoin: "round" as const,
+  };
+  if (type === "ozon")
+    return (
+      <svg {...p}><circle cx="6.5" cy="9" r="2.4" /><circle cx="17.5" cy="7.5" r="2.4" /><circle cx="12" cy="17.5" r="2.4" /><path d="M8.5 10.2 11 15.1M8.8 8.2 15.2 7.2M15.7 9.3 13 15.2" /></svg>
+    );
+  if (type === "folie")
+    return (
+      <svg {...p}><path d="M7 3h7l4 4v14H7z" /><path d="M14 3v4h4" /><path d="M9.8 12.5l1.8 1.8L15 11" /></svg>
+    );
+  return (
+    <svg {...p}><rect x="3.5" y="7.5" width="12" height="11" rx="1.5" /><circle cx="9.5" cy="13" r="2.6" /><path d="M15.5 10.5h4v6h-4" /></svg>
+  );
+}
 
 const GALLERY = [
   "/img/ferrari.jpg",
@@ -124,19 +143,32 @@ export default function Home() {
             <StickyServices items={SERVICES} />
           </div>
 
-          {/* ancillary */}
-          <div className="max-w-6xl mx-auto pb-24 pt-10">
-            <div className="grid sm:grid-cols-3 gap-px bg-stone-800 border border-stone-800">
+          {/* Flere tjenester — given proper room */}
+          <div className="max-w-6xl mx-auto pb-28 pt-20 md:pt-28">
+            <Reveal className="mb-12 max-w-2xl">
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-brand-light mb-4">— Også hos oss</p>
+              <h2 className="font-bold leading-[1.04] text-white" style={{ fontSize: "clamp(1.85rem, 4vw, 3rem)", letterSpacing: "-0.025em" }}>
+                Mer enn lakk.
+              </h2>
+              <p className="text-stone-400 mt-5 text-lg leading-relaxed">
+                Tre tjenester mange ikke vet vi tilbyr — men som mange trenger.
+              </p>
+            </Reveal>
+            <div className="grid md:grid-cols-3 gap-5">
               {EXTRA.map((e, i) => (
-                <Reveal key={e.title} delay={i * 90}>
-                  <div className="bg-stone-950 p-7 h-full">
-                    <h3 className="text-base font-bold mb-2 text-white">{e.title}</h3>
-                    <p className="text-sm text-stone-400 leading-relaxed">{e.desc}</p>
-                  </div>
+                <Reveal key={e.title} delay={i * 110}>
+                  <article className="group h-full bg-stone-900/50 border border-stone-800 hover:border-brand hover:bg-stone-900 transition-colors p-8 md:p-10 flex flex-col">
+                    <div className="text-brand-light mb-7"><ServiceIcon type={e.icon} /></div>
+                    <h3 className="text-xl font-bold text-white mb-3">{e.title}</h3>
+                    <p className="text-stone-400 leading-relaxed mb-8 flex-1">{e.desc}</p>
+                    <a href="tel:+4791534263" className="inline-flex items-center gap-2 text-sm font-semibold text-brand-light group-hover:gap-3 transition-all">
+                      Be om pris <span aria-hidden>→</span>
+                    </a>
+                  </article>
                 </Reveal>
               ))}
             </div>
-            <p className="text-sm text-stone-400 mt-8 max-w-xl">
+            <p className="text-sm text-stone-500 mt-10 max-w-xl">
               Pris avtales etter befaring. Ring eller send melding — vi gir et tydelig tilbud før vi tar i bilen.
             </p>
           </div>
