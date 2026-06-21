@@ -22,12 +22,11 @@ const EXTRA = [
 ];
 
 const GALLERY = [
-  { src: "/img/ferrari.jpg", marque: "Ferrari", model: "F430" },
-  { src: "/img/brabus.png", marque: "Brabus", model: "Mercedes-AMG G" },
-  { src: "/img/tesla.jpg", marque: "Tesla", model: "Model Y" },
-  { src: "/img/bmw.jpg", marque: "BMW", model: "i4" },
-  { src: "/img/brabus1.jpg", marque: "Brabus", model: "G 800" },
-  { src: "/img/coating.jpg", marque: "Harley-Davidson", model: "Coating" },
+  "/img/ferrari.jpg",
+  "/img/brabus.png",
+  "/img/tesla.jpg",
+  "/img/bmw.jpg",
+  "/img/brabus1.jpg",
 ];
 
 const JSONLD = {
@@ -177,16 +176,11 @@ export default function Home() {
               </p>
             </Reveal>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1">
-              {GALLERY.map((c, i) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1">
+              {GALLERY.map((src, i) => (
                 <Reveal key={i} delay={(i % 3) * 90}>
                   <article className="group relative aspect-[4/5] overflow-hidden bg-stone-800">
-                    <Image src={c.src} alt={`${c.marque} ${c.model} etter detailing hos SH Bilpleie`} fill sizes="(max-width:768px) 50vw, 16vw" className="object-cover group-hover:scale-110 transition-transform duration-[1200ms] ease-out" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/15 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
-                      <p className="font-mono text-[10px] text-stone-300 uppercase tracking-[0.3em] mb-1">{c.marque}</p>
-                      <p className="text-white font-semibold text-sm">{c.model}</p>
-                    </div>
+                    <Image src={src} alt="Bil etter detailing hos SH Bilpleie" fill sizes="(max-width:768px) 50vw, 20vw" className="object-cover group-hover:scale-110 transition-transform duration-[1200ms] ease-out" />
                   </article>
                 </Reveal>
               ))}
