@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 /** Cinematic hero: layered image + headline with mouse-parallax depth and slow zoom. */
-export default function Hero() {
+export default function Hero({ image = "/img/brabus.png" }: { image?: string }) {
   const imgRef = useRef<HTMLDivElement | null>(null);
   const fgRef = useRef<HTMLDivElement | null>(null);
 
@@ -33,8 +33,8 @@ export default function Hero() {
       {/* image layer */}
       <div ref={imgRef} className="absolute inset-0" style={{ transform: "scale(1.12)", willChange: "transform" }}>
         <Image
-          src="/img/brabus.png"
-          alt="Brabus Mercedes-AMG G etter detailing hos SH Bilpleie i Vesterålen"
+          src={image}
+          alt="Bil etter detailing hos SH Bilpleie i Vesterålen"
           fill
           priority
           sizes="100vw"

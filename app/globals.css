@@ -12,10 +12,12 @@ html {
   --accent: #1d49a7;     /* brand blue (from logo) */
 }
 
-@theme inline {
+/* Non-inline @theme so brand utilities reference the CSS var (var(--color-brand)),
+   which lets each design variant recolor the whole site by overriding it. */
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand: #1d49a7;        /* SH Bilpleie blue */
+  --color-brand: #1d49a7;        /* SH Bilpleie blue (default / variant A) */
   --color-brand-light: #2a5bd0;
   --font-sans: var(--font-inter);
 }
