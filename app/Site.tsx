@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import Hero from "./components/Hero";
 import Parallax from "./components/Parallax";
 import Reveal from "./components/Reveal";
 import StickyServices from "./components/StickyServices";
 import ContactForm from "./components/ContactForm";
-import { THEMES, ORDER } from "./themes";
+import { THEMES } from "./themes";
 
 const MARQUEE_BRANDS = [
   "FERRARI", "BRABUS", "TESLA", "BMW M", "MERCEDES AMG", "PORSCHE", "AUDI", "LAND ROVER", "VOLVO", "VOLKSWAGEN",
@@ -72,23 +71,6 @@ export default function Site({ id = "a" }: { id?: string }) {
   return (
     <div className="min-h-screen bg-[var(--bg)] text-stone-100 pb-16 md:pb-0" style={t.vars} data-variant={id}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSONLD) }} />
-
-      {/* Variant switcher */}
-      <div className="fixed top-1/2 -translate-y-1/2 right-3 z-[60] flex flex-col gap-2">
-        {ORDER.map((vid) => (
-          <Link
-            key={vid}
-            href={vid === "a" ? "/" : `/v/${vid}`}
-            title={THEMES[vid].label}
-            aria-label={`Variant ${vid.toUpperCase()} — ${THEMES[vid].label}`}
-            className={`w-10 h-10 grid place-items-center rounded-full text-xs font-bold uppercase backdrop-blur-md border transition-colors ${
-              vid === id ? "bg-brand text-white border-transparent" : "bg-black/40 text-stone-300 border-white/15 hover:border-brand hover:text-white"
-            }`}
-          >
-            {vid.toUpperCase()}
-          </Link>
-        ))}
-      </div>
 
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-40 px-6 py-5 backdrop-blur-md bg-black/40">
