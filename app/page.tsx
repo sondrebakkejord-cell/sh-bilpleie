@@ -157,13 +157,10 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-5">
               {EXTRA.map((e, i) => (
                 <Reveal key={e.title} delay={i * 110}>
-                  <article className="group h-full bg-stone-900/50 border border-stone-800 hover:border-brand hover:bg-stone-900 transition-colors p-8 md:p-10 flex flex-col">
+                  <article className="h-full bg-stone-900/50 border border-stone-800 hover:border-brand hover:bg-stone-900 transition-colors p-8 md:p-10 flex flex-col">
                     <div className="text-brand-light mb-7"><ServiceIcon type={e.icon} /></div>
                     <h3 className="text-xl font-bold text-white mb-3">{e.title}</h3>
-                    <p className="text-stone-400 leading-relaxed mb-8 flex-1">{e.desc}</p>
-                    <a href="tel:+4791534263" className="inline-flex items-center gap-2 text-sm font-semibold text-brand-light group-hover:gap-3 transition-all">
-                      Be om pris <span aria-hidden>→</span>
-                    </a>
+                    <p className="text-stone-400 leading-relaxed">{e.desc}</p>
                   </article>
                 </Reveal>
               ))}
