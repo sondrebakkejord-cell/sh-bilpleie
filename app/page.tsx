@@ -1,16 +1,18 @@
 import Image from "next/image";
+import Hero from "./components/Hero";
+import Parallax from "./components/Parallax";
 import Reveal from "./components/Reveal";
-import BeforeAfter from "./components/BeforeAfter";
+import StickyServices from "./components/StickyServices";
 
 const MARQUEE_BRANDS = [
   "FERRARI", "BRABUS", "TESLA", "BMW M", "MERCEDES AMG", "PORSCHE", "AUDI", "LAND ROVER", "VOLVO", "VOLKSWAGEN",
 ];
 
 const SERVICES = [
-  { num: "01", title: "Polering", desc: "RUPES Bigfoot på riktig pute og polish. Fjerner riper, holografi og oksidasjon.", img: "/img/work-0735.jpg" },
-  { num: "02", title: "Keramisk coating", desc: "CarPro CQuartz og tilsvarende. Beskyttelse som varer i flere år.", img: "/img/tesla.jpg" },
-  { num: "03", title: "Lakkorrigering", desc: "Fjerner swirls, vaskeriper og minor scratches. Lakken som ny.", img: "/img/bilder-nettside.jpg" },
-  { num: "04", title: "Interiør & skinn", desc: "Seter, tepper, dashbord og himling — rens, conditioner og UV-beskyttelse.", img: "/img/work-4423.jpg" },
+  { num: "01 — Polering", title: "Polering", desc: "RUPES Bigfoot på riktig pute og polish. Fjerner riper, holografi og oksidasjon til lakken speiler igjen.", img: "/img/work-0735.jpg" },
+  { num: "02 — Coating", title: "Keramisk coating", desc: "CarPro CQuartz og tilsvarende. Et beskyttende lag som perler vann og varer i flere år.", img: "/img/tesla.jpg" },
+  { num: "03 — Korrigering", title: "Lakkorrigering", desc: "Swirls, vaskeriper og minor scratches slipes vekk i flere trinn. For deg som vil ha lakken bedre enn ny.", img: "/img/bilder-nettside.jpg" },
+  { num: "04 — Interiør", title: "Interiør & skinn", desc: "Seter, tepper, dashbord og himling. Rens, conditioner og UV-beskyttelse — bilen lukter og ser fersk ut igjen.", img: "/img/work-4423.jpg" },
 ];
 
 const EXTRA = [
@@ -38,13 +40,7 @@ const JSONLD = {
   telephone: "+4791534263",
   email: "Shbilpleievesteraalen@gmail.com",
   priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Sortland",
-    postalCode: "8400",
-    addressRegion: "Nordland",
-    addressCountry: "NO",
-  },
+  address: { "@type": "PostalAddress", addressLocality: "Sortland", postalCode: "8400", addressRegion: "Nordland", addressCountry: "NO" },
   geo: { "@type": "GeoCoordinates", latitude: 68.6966, longitude: 15.4117 },
   areaServed: { "@type": "AdministrativeArea", name: "Vesterålen" },
   sameAs: ["https://www.facebook.com/p/SH-Service-100083445484335/"],
@@ -56,7 +52,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSONLD) }} />
 
       {/* Nav */}
-      <nav className="absolute top-0 left-0 right-0 z-40 px-6 py-6">
+      <nav className="fixed top-0 left-0 right-0 z-40 px-6 py-5 backdrop-blur-md bg-stone-950/30">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
             <div className="text-stone-50 font-bold text-xl tracking-tight uppercase">
@@ -68,193 +64,126 @@ export default function Home() {
             <a href="#tjenester" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Tjenester</a>
             <a href="#biler" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Bilene</a>
             <a href="#kontakt" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Kontakt</a>
-            <a href="tel:+4791534263" className="px-5 py-2.5 bg-red-600 text-white hover:bg-red-500 transition-colors uppercase tracking-widest text-xs font-bold">
-              Bestill time
-            </a>
+            <a href="tel:+4791534263" className="px-5 py-2.5 bg-red-600 text-white hover:bg-red-500 transition-colors uppercase tracking-widest text-xs font-bold">Bestill time</a>
           </div>
         </div>
       </nav>
 
       <main>
-        {/* Hero */}
-        <section className="relative min-h-screen flex items-end overflow-hidden bg-stone-950 pt-32 pb-12">
-          <Image
-            src="/img/ferrari.jpg"
-            alt="Rød Ferrari F430 etter detailing hos SH Bilpleie i Vesterålen"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-right opacity-50 md:opacity-65"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/85 md:via-stone-950/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent md:via-transparent" />
-
-          <div className="relative max-w-7xl mx-auto px-6 w-full">
-            <div className="max-w-3xl">
-              <div className="flex items-center gap-3 mb-8 font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400">
-                <span className="h-px w-10 bg-red-500" />
-                <span>Bilpleie · Vesterålen</span>
-              </div>
-              <h1
-                className="font-bold mb-8 text-white"
-                style={{ fontSize: "clamp(3rem, 9vw, 8rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}
-              >
-                Bilpleie.<br />
-                <span className="italic font-light text-stone-300">Slik proffene gjør det.</span>
-              </h1>
-              <p className="text-lg md:text-xl text-stone-200 max-w-xl mb-10 leading-relaxed">
-                Polering, coating, interiørrens, skinnbehandling og ozon. Vi tar bilen
-                din — fra hverdagsbil til exotic — og leverer den slik den ble levert
-                fra fabrikken.
-              </p>
-              <div className="flex flex-wrap gap-3 items-center">
-                <a href="tel:+4791534263" className="inline-flex items-center gap-3 px-7 py-4 bg-red-600 text-white hover:bg-red-500 transition-colors font-bold">
-                  <span className="text-xs uppercase tracking-[0.25em]">Ring</span>
-                  <span className="text-lg font-mono">915 34 263</span>
-                </a>
-                <a href="#tjenester" className="inline-block px-7 py-4 border border-stone-50/25 text-stone-50 hover:bg-stone-50 hover:text-stone-950 transition-colors uppercase tracking-[0.25em] text-xs font-semibold">
-                  Se tjenester
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Hero />
 
         {/* Marquee */}
         <section className="relative bg-red-600 text-white py-6 overflow-hidden border-y-2 border-red-700">
-          <div className="flex items-center gap-12 whitespace-nowrap" style={{ animation: "marquee 35s linear infinite" }}>
+          <div className="flex items-center gap-12 whitespace-nowrap marquee-track">
             {[...MARQUEE_BRANDS, ...MARQUEE_BRANDS, ...MARQUEE_BRANDS].map((b, i) => (
               <span key={i} className="inline-flex items-center gap-12 text-2xl md:text-3xl font-bold tracking-[0.15em] uppercase">
-                {b}
-                <span className="text-white/50 text-base">●</span>
+                {b}<span className="text-white/50 text-base">●</span>
               </span>
             ))}
           </div>
-          <style>{`@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
-            @media (prefers-reduced-motion: reduce){ section [style*="marquee"]{ animation: none !important; } }`}</style>
+          <style>{`.marquee-track{animation:marquee 38s linear infinite}@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-33.333%)}}@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}`}</style>
         </section>
 
-        {/* Intro */}
-        <section className="py-28 px-6 bg-stone-950">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-12 gap-12 items-start">
-            <div className="md:col-span-3 md:sticky md:top-24">
-              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400">— Hvem vi er</p>
-            </div>
-            <Reveal className="md:col-span-9">
-              <h2 className="font-bold mb-10 leading-[1.02] text-white" style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", letterSpacing: "-0.025em" }}>
-                I Vesterålen er det få som tar bilpleie helt seriøst.{" "}
-                <span className="text-stone-500">Vi gjør det.</span>
-              </h2>
-              <div className="space-y-5 text-lg text-stone-300 leading-relaxed max-w-2xl">
-                <p>
-                  SH Bilpleie er et profesjonelt verksted basert i Vesterålen. Vi tar oss av
-                  hele bilen — lakk, interiør, skinn og lukt — med utstyr og produkter
-                  proff-detailere bruker over hele verden.
-                </p>
-                <p>
-                  Fra full keramisk coating til en grundig interiør- eller ozonbehandling.
-                  Vi gjør jobben skikkelig, uansett om bilen er ny eller ti år gammel.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* Before / after */}
-        <section className="pb-28 px-6 bg-stone-950">
+        {/* Statement */}
+        <section className="py-32 md:py-44 px-6 bg-stone-950">
           <div className="max-w-5xl mx-auto">
             <Reveal>
-              <div className="mb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">— Resultatet</p>
-                  <h2 className="font-bold leading-[1.02] text-white" style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)", letterSpacing: "-0.025em" }}>
-                    Dra og se forskjellen.
-                  </h2>
-                </div>
-                <p className="max-w-xs text-stone-400 leading-relaxed text-sm">
-                  Matt og livløs lakk på den ene siden — dyp, speilblank finish på den andre.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={120} className="border border-stone-800">
-              <BeforeAfter src="/img/ferrari.jpg" alt="Bilpleie hos SH — før og etter polering" />
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-500 mb-8">— Hvem vi er</p>
+              <h2 className="font-bold leading-[1.04] text-white" style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)", letterSpacing: "-0.03em" }}>
+                I Vesterålen er det få som tar bilpleie helt seriøst.{" "}
+                <span className="text-stone-600">Vi gjør det — ned til hver pore i lakken.</span>
+              </h2>
             </Reveal>
           </div>
         </section>
 
-        {/* Tjenester */}
-        <section id="tjenester" className="py-24 px-6 bg-stone-950">
-          <div className="max-w-6xl mx-auto">
-            <Reveal className="mb-16">
-              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">— Tjenester</p>
-              <h2 className="font-bold leading-[1.02] text-white max-w-3xl" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}>
-                Det vi gjør — fra hverdagsbilen til <em className="italic font-light text-stone-300">superbilen</em>.
+        {/* Parallax interstitial 1 */}
+        <section className="relative h-[78vh] overflow-hidden bg-stone-950">
+          <Parallax speed={0.22} className="absolute inset-x-0 -top-[22%] h-[144%]">
+            <div className="relative w-full h-full">
+              <Image src="/img/ferrari.jpg" alt="Ferrari hos SH Bilpleie" fill sizes="100vw" className="object-cover" />
+            </div>
+          </Parallax>
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-950/45 to-stone-950/70" />
+          <div className="relative h-full max-w-7xl mx-auto px-6 flex items-center">
+            <Reveal>
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-red-400 mb-5">— Filosofien</p>
+              <h2 className="font-bold text-white" style={{ fontSize: "clamp(2.5rem, 8vw, 6.5rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}>
+                Detaljert til<br /><span className="italic font-light text-stone-300">perfeksjon.</span>
               </h2>
             </Reveal>
+          </div>
+        </section>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-stone-800">
-              {SERVICES.map((s, i) => (
-                <Reveal key={s.num} delay={i * 90}>
-                  <article className="bg-stone-900 hover:bg-stone-950 transition-colors flex flex-col h-full">
-                    <div className="aspect-[16/10] overflow-hidden bg-stone-800 relative">
-                      <Image src={s.img} alt={`${s.title} hos SH Bilpleie`} fill sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw" className="object-cover" />
-                    </div>
-                    <div className="p-6 flex-1">
-                      <h3 className="text-base font-bold mb-2 text-white">{s.title}</h3>
-                      <p className="text-sm text-stone-400 leading-relaxed">{s.desc}</p>
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
+        {/* Tjenester — sticky scroll */}
+        <section id="tjenester" className="px-6 bg-stone-950">
+          <div className="max-w-6xl mx-auto pt-24 md:pt-28">
+            <Reveal className="mb-4 md:mb-0">
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-500 mb-4">— Tjenester</p>
+              <h2 className="font-bold leading-[1.02] text-white max-w-3xl mb-10" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}>
+                Fra hverdagsbilen til <em className="italic font-light text-stone-400">superbilen</em>.
+              </h2>
+            </Reveal>
+            <StickyServices items={SERVICES} />
+          </div>
 
-            {/* Ancillary services — no stock photos, clean list */}
-            <div className="grid sm:grid-cols-3 gap-px bg-stone-800 mt-px">
+          {/* ancillary */}
+          <div className="max-w-6xl mx-auto pb-24 pt-10">
+            <div className="grid sm:grid-cols-3 gap-px bg-stone-800 border border-stone-800">
               {EXTRA.map((e, i) => (
                 <Reveal key={e.title} delay={i * 90}>
-                  <div className="bg-stone-900 p-6 h-full">
+                  <div className="bg-stone-950 p-7 h-full">
                     <h3 className="text-base font-bold mb-2 text-white">{e.title}</h3>
                     <p className="text-sm text-stone-400 leading-relaxed">{e.desc}</p>
                   </div>
                 </Reveal>
               ))}
             </div>
-
-            <p className="text-sm text-stone-400 mt-10 max-w-xl">
-              Pris avtales etter befaring. Ring eller send melding — vi gir et tydelig
-              tilbud før vi tar i bilen.
+            <p className="text-sm text-stone-400 mt-8 max-w-xl">
+              Pris avtales etter befaring. Ring eller send melding — vi gir et tydelig tilbud før vi tar i bilen.
             </p>
           </div>
         </section>
 
+        {/* Parallax interstitial 2 */}
+        <section className="relative h-[72vh] overflow-hidden bg-stone-950">
+          <Parallax speed={0.2} className="absolute inset-x-0 -top-[22%] h-[144%]">
+            <div className="relative w-full h-full">
+              <Image src="/img/brabus1.jpg" alt="Brabus G hos SH Bilpleie" fill sizes="100vw" className="object-cover" />
+            </div>
+          </Parallax>
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-stone-950/70" />
+          <div className="relative h-full max-w-7xl mx-auto px-6 flex items-end pb-20">
+            <Reveal>
+              <h2 className="font-bold text-white" style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)", letterSpacing: "-0.03em", lineHeight: 0.96 }}>
+                Beskyttelse<br /><span className="italic font-light text-stone-300">som varer i årevis.</span>
+              </h2>
+            </Reveal>
+          </div>
+        </section>
+
         {/* Biler */}
-        <section id="biler" className="py-24 px-6 bg-stone-900 border-y border-stone-800">
+        <section id="biler" className="py-28 px-6 bg-stone-900 border-y border-stone-800">
           <div className="max-w-7xl mx-auto">
             <Reveal className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">— Referanser</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-500 mb-4">— Referanser</p>
                 <h2 className="font-bold leading-[1.02] text-white" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}>
                   Noen av bilene<br />som har vært innom.
                 </h2>
               </div>
               <p className="max-w-sm text-stone-400 leading-relaxed">
-                Vi har behandlet alt fra familiebiler til exotic clientele. Et utvalg vises her.
+                Fra familiebiler til exotic clientele. Et utvalg av det som har stått på løftet.
               </p>
             </Reveal>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1">
               {GALLERY.map((c, i) => (
-                <Reveal key={i} delay={(i % 3) * 80}>
+                <Reveal key={i} delay={(i % 3) * 90}>
                   <article className="group relative aspect-[4/5] overflow-hidden bg-stone-800">
-                    <Image
-                      src={c.src}
-                      alt={`${c.marque} ${c.model} etter detailing hos SH Bilpleie`}
-                      fill
-                      sizes="(max-width:768px) 50vw, 16vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <Image src={c.src} alt={`${c.marque} ${c.model} etter detailing hos SH Bilpleie`} fill sizes="(max-width:768px) 50vw, 16vw" className="object-cover group-hover:scale-110 transition-transform duration-[1200ms] ease-out" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/15 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
                       <p className="font-mono text-[10px] text-stone-300 uppercase tracking-[0.3em] mb-1">{c.marque}</p>
                       <p className="text-white font-semibold text-sm">{c.model}</p>
                     </div>
@@ -266,13 +195,11 @@ export default function Home() {
         </section>
 
         {/* Merker */}
-        <section className="py-20 px-6 bg-stone-950">
+        <section className="py-24 px-6 bg-stone-950">
           <div className="max-w-6xl mx-auto">
             <Reveal className="mb-10 text-center">
-              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">— Verktøy &amp; sertifiseringer</p>
-              <h2 className="font-bold leading-tight text-white" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", letterSpacing: "-0.025em" }}>
-                Hva vi jobber med.
-              </h2>
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-500 mb-4">— Verktøy &amp; sertifiseringer</p>
+              <h2 className="font-bold leading-tight text-white" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", letterSpacing: "-0.025em" }}>Hva vi jobber med.</h2>
             </Reveal>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <div className="bg-white p-7 flex flex-col items-center justify-center">
@@ -284,8 +211,7 @@ export default function Home() {
               </div>
               <div className="bg-white p-7 flex flex-col items-center justify-center">
                 <span className="text-stone-900 font-light italic text-2xl relative inline-block">
-                  <span className="absolute -top-0.5 left-0 right-0 h-0.5 bg-cyan-700" />
-                  CarPro
+                  <span className="absolute -top-0.5 left-0 right-0 h-0.5 bg-cyan-700" />CarPro
                 </span>
                 <p className="text-[9px] uppercase tracking-[0.3em] text-stone-500 mt-2">Coating &amp; chemistry</p>
               </div>
@@ -307,15 +233,13 @@ export default function Home() {
         <section id="kontakt" className="py-28 px-6 bg-stone-950 border-t border-stone-800">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14">
             <Reveal>
-              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-400 mb-4">— Bestilling</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-500 mb-4">— Bestilling</p>
               <h2 className="font-bold mb-6 leading-[1.05] text-white" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}>
                 Skal bilen din<br />få en oppgradering?
               </h2>
               <p className="text-lg text-stone-300 mb-10 leading-relaxed">
-                Ring oss for en uforpliktende prat. Vi tar gjerne en titt på bilen
-                først — så vi gir et tydelig tilbud før vi setter i gang.
+                Ring oss for en uforpliktende prat. Vi tar gjerne en titt på bilen først — så vi gir et tydelig tilbud før vi setter i gang.
               </p>
-
               <div className="space-y-6 border-t border-stone-800 pt-8">
                 <a href="tel:+4791534263" className="flex items-baseline gap-6 group">
                   <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-stone-500 w-24 shrink-0">Telefon</span>
@@ -339,17 +263,13 @@ export default function Home() {
                 </a>
               </div>
             </Reveal>
-
             <Reveal delay={120} className="overflow-hidden border border-stone-800 h-full min-h-[480px]">
               <iframe
                 title="SH Bilpleie — Sortland"
                 src="https://maps.google.com/maps?q=Sortland%208400&t=&z=12&ie=UTF8&iwloc=B&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0, display: "block", minHeight: "480px", filter: "invert(0.9) hue-rotate(180deg)" }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
+                width="100%" height="100%"
+                style={{ border: 0, display: "block", minHeight: "480px", filter: "invert(0.92) hue-rotate(180deg)" }}
+                loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen
               />
             </Reveal>
           </div>
@@ -362,11 +282,7 @@ export default function Home() {
         <p className="mt-3 opacity-60">© {new Date().getFullYear()} SH Bilpleie og Service Halvorsen</p>
       </footer>
 
-      {/* Mobile sticky call bar */}
-      <a
-        href="tel:+4791534263"
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-red-600 text-white flex items-center justify-center gap-3 py-4 font-bold uppercase tracking-[0.2em] text-sm"
-      >
+      <a href="tel:+4791534263" className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-red-600 text-white flex items-center justify-center gap-3 py-4 font-bold uppercase tracking-[0.2em] text-sm">
         Ring · <span className="font-mono tracking-normal">915 34 263</span>
       </a>
     </div>
