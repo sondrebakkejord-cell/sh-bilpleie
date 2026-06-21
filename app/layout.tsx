@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     "skinnbehandling",
     "SH Bilpleie",
   ],
+  alternates: { canonical: BASE_URL },
   openGraph: {
     title: "SH Bilpleie — Vesterålen",
     description:
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     url: BASE_URL,
     siteName: "SH Bilpleie",
+    images: [{ url: "/img/ferrari.jpg", width: 1200, height: 800, alt: "SH Bilpleie Vesterålen" }],
   },
 };
 
