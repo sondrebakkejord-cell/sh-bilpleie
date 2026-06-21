@@ -67,7 +67,7 @@ export default function StickyServices({ items }: { items: Item[] }) {
             key={i}
             data-i={i}
             ref={(el) => { refs.current[i] = el; }}
-            className="min-h-[92vh] flex flex-col justify-center py-16"
+            className="min-h-[88vh] flex flex-col justify-center py-14"
           >
             <div className="md:hidden relative aspect-[16/11] mb-7 overflow-hidden bg-stone-900 border border-stone-800">
               <Image src={s.img} alt={s.title} fill sizes="100vw" className="object-cover" />
@@ -77,8 +77,8 @@ export default function StickyServices({ items }: { items: Item[] }) {
                 </div>
               )}
             </div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-brand-light mb-6">{s.num}</p>
-            <h3 className="text-white font-bold mb-7" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", letterSpacing: "-0.025em", lineHeight: 1.02 }}>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-brand-light mb-5">{s.num}</p>
+            <h3 className="text-white font-bold mb-5" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", letterSpacing: "-0.025em", lineHeight: 1.02 }}>
               {s.title}
             </h3>
             <p className="text-lg text-stone-300 leading-relaxed max-w-md">{s.desc}</p>
