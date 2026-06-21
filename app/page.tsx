@@ -11,7 +11,7 @@ const MARQUEE_BRANDS = [
 
 const SERVICES = [
   { num: "01 — Polering", title: "Polering", desc: "RUPES Bigfoot på riktig pute og polish. Fjerner riper, holografi og oksidasjon til lakken speiler igjen.", img: "/img/work-0735.jpg" },
-  { num: "02 — Coating", title: "Keramisk coating", desc: "CarPro CQuartz og tilsvarende. Et beskyttende lag som perler vann og varer i flere år.", img: "/img/coating.jpg" },
+  { num: "02 — Coating", title: "Keramisk coating", desc: "CarPro CQuartz og tilsvarende. Et beskyttende lag som perler vann og varer i flere år.", img: "/img/coating.jpg", img2: "/img/tesla.jpg" },
   { num: "03 — Korrigering", title: "Lakkorrigering", desc: "Swirls, vaskeriper og minor scratches slipes vekk i flere trinn. For deg som vil ha lakken bedre enn ny.", img: "/img/bilder-nettside.jpg" },
   { num: "04 — Interiør", title: "Interiør & skinn", desc: "Seter, tepper, dashbord og himling. Rens, conditioner og UV-beskyttelse — bilen lukter og ser fersk ut igjen.", img: "/img/work-4423.jpg" },
 ];

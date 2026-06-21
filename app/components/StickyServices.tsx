@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-type Item = { num: string; title: string; desc: string; img: string };
+type Item = { num: string; title: string; desc: string; img: string; img2?: string };
 
 /** Apple-style pinned scroll: image stays, crossfades as each service scrolls through. */
 export default function StickyServices({ items }: { items: Item[] }) {
@@ -45,6 +45,17 @@ export default function StickyServices({ items }: { items: Item[] }) {
               {String(active + 1).padStart(2, "0")}
               <span className="text-white/40"> / {String(items.length).padStart(2, "0")}</span>
             </div>
+            {items.map((s, i) =>
+              s.img2 ? (
+                <div
+                  key={`inset-${i}`}
+                  className="absolute bottom-5 right-5 w-2/5 aspect-[4/3] overflow-hidden border-2 border-stone-950 shadow-2xl transition-opacity duration-[900ms]"
+                  style={{ opacity: active === i ? 1 : 0 }}
+                >
+                  <Image src={s.img2} alt="" fill sizes="20vw" className="object-cover" />
+                </div>
+              ) : null
+            )}
           </div>
         </div>
       </div>
@@ -60,8 +71,13 @@ export default function StickyServices({ items }: { items: Item[] }) {
           >
             <div className="md:hidden relative aspect-[16/11] mb-7 overflow-hidden bg-stone-900 border border-stone-800">
               <Image src={s.img} alt={s.title} fill sizes="100vw" className="object-cover" />
+              {s.img2 && (
+                <div className="absolute bottom-3 right-3 w-2/5 aspect-[4/3] overflow-hidden border-2 border-stone-950 shadow-xl">
+                  <Image src={s.img2} alt="" fill sizes="40vw" className="object-cover" />
+                </div>
+              )}
             </div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-red-500 mb-5">{s.num}</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-brand-light mb-5">{s.num}</p>
             <h3 className="text-white font-bold mb-5" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", letterSpacing: "-0.025em", lineHeight: 1.02 }}>
               {s.title}
             </h3>
