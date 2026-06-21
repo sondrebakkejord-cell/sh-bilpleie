@@ -17,7 +17,7 @@ export const THEMES: Record<string, Theme> = {
     id: "a", label: "Midnatt", tag: "Royal blå · kinematisk",
     hero: "/img/brabus.png",
     vars: v({
-      "--bg": "#0a0a0b", "--surface": "#151517", "--border": "rgba(255,255,255,0.08)",
+      "--bg": "#090a0d", "--surface": "#0f1422", "--border": "rgba(90,130,230,0.12)",
       "--color-brand": "#1d49a7", "--color-brand-light": "#3a63d0", "--glow": "rgba(45,90,210,0.16)",
     }),
   },
