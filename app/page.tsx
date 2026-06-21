@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Parallax from "./components/Parallax";
 import Reveal from "./components/Reveal";
 import StickyServices from "./components/StickyServices";
+import ContactForm from "./components/ContactForm";
 
 const MARQUEE_BRANDS = [
   "FERRARI", "BRABUS", "TESLA", "BMW M", "MERCEDES AMG", "PORSCHE", "AUDI", "LAND ROVER", "VOLVO", "VOLKSWAGEN",
@@ -53,17 +54,14 @@ export default function Home() {
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-40 px-6 py-5 backdrop-blur-md bg-stone-950/30">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div>
-            <div className="text-stone-50 font-bold text-xl tracking-tight uppercase">
-              SH <span className="text-red-500">Bilpleie</span>
-            </div>
-            <div className="text-[10px] uppercase tracking-[0.4em] text-stone-400 mt-0.5 font-mono">Vesterålen</div>
-          </div>
+          <a href="#" aria-label="SH Bilpleie — til toppen" className="flex items-center">
+            <Image src="/img/logo.png" alt="SH Bilpleie" width={160} height={48} priority className="h-9 md:h-10 w-auto" />
+          </a>
           <div className="hidden md:flex items-center gap-10 text-sm">
-            <a href="#tjenester" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Tjenester</a>
-            <a href="#biler" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Bilene</a>
-            <a href="#kontakt" className="hover:text-red-400 transition-colors uppercase tracking-widest text-xs">Kontakt</a>
-            <a href="tel:+4791534263" className="px-5 py-2.5 bg-red-600 text-white hover:bg-red-500 transition-colors uppercase tracking-widest text-xs font-bold">Bestill time</a>
+            <a href="#tjenester" className="hover:text-brand-light transition-colors uppercase tracking-widest text-xs">Tjenester</a>
+            <a href="#biler" className="hover:text-brand-light transition-colors uppercase tracking-widest text-xs">Bilene</a>
+            <a href="#kontakt" className="hover:text-brand-light transition-colors uppercase tracking-widest text-xs">Kontakt</a>
+            <a href="tel:+4791534263" className="px-5 py-2.5 bg-brand text-white hover:bg-brand-light transition-colors uppercase tracking-widest text-xs font-bold">Bestill time</a>
           </div>
         </div>
       </nav>
@@ -72,7 +70,7 @@ export default function Home() {
         <Hero />
 
         {/* Marquee */}
-        <section className="relative bg-red-600 text-white py-6 overflow-hidden border-y-2 border-red-700">
+        <section className="relative bg-brand text-white py-6 overflow-hidden border-y-2 border-[#173a86]">
           <div className="flex items-center gap-12 whitespace-nowrap marquee-track">
             {[...MARQUEE_BRANDS, ...MARQUEE_BRANDS, ...MARQUEE_BRANDS].map((b, i) => (
               <span key={i} className="inline-flex items-center gap-12 text-2xl md:text-3xl font-bold tracking-[0.15em] uppercase">
@@ -106,7 +104,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-950/45 to-stone-950/70" />
           <div className="relative h-full max-w-7xl mx-auto px-6 flex items-center">
             <Reveal>
-              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-red-400 mb-5">— Filosofien</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-brand-light mb-5">— Filosofien</p>
               <h2 className="font-bold text-white" style={{ fontSize: "clamp(2.5rem, 8vw, 6.5rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}>
                 Detaljert til<br /><span className="italic font-light text-stone-300">perfeksjon.</span>
               </h2>
@@ -198,7 +196,7 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <div className="bg-white p-7 flex flex-col items-center justify-center">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 tracking-widest">RUPES</span>
+                  <span className="bg-brand text-white text-xs font-bold px-2 py-1 tracking-widest">RUPES</span>
                   <span className="text-stone-900 font-bold italic">Bigfoot</span>
                 </div>
                 <p className="text-[9px] uppercase tracking-[0.3em] text-stone-500">Polishing Systems</p>
@@ -225,7 +223,8 @@ export default function Home() {
 
         {/* Kontakt */}
         <section id="kontakt" className="py-28 px-6 bg-stone-950 border-t border-stone-800">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-14 items-start">
             <Reveal>
               <p className="font-mono text-[11px] uppercase tracking-[0.4em] text-stone-500 mb-4">— Bestilling</p>
               <h2 className="font-bold mb-6 leading-[1.05] text-white" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}>
@@ -237,11 +236,11 @@ export default function Home() {
               <div className="space-y-6 border-t border-stone-800 pt-8">
                 <a href="tel:+4791534263" className="flex items-baseline gap-6 group">
                   <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-stone-500 w-24 shrink-0">Telefon</span>
-                  <span className="text-2xl md:text-3xl font-bold font-mono text-white group-hover:text-red-500 transition-colors">915 34 263</span>
+                  <span className="text-2xl md:text-3xl font-bold font-mono text-white group-hover:text-brand-light transition-colors">915 34 263</span>
                 </a>
                 <a href="mailto:Shbilpleievesteraalen@gmail.com" className="flex items-baseline gap-6 group">
                   <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-stone-500 w-24 shrink-0">E-post</span>
-                  <span className="text-base md:text-lg text-white group-hover:text-red-500 transition-colors break-all">Shbilpleievesteraalen@gmail.com</span>
+                  <span className="text-base md:text-lg text-white group-hover:text-brand-light transition-colors break-all">Shbilpleievesteraalen@gmail.com</span>
                 </a>
                 <div className="flex items-baseline gap-6">
                   <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-stone-500 w-24 shrink-0">Åpningstid</span>
@@ -253,16 +252,20 @@ export default function Home() {
                 </div>
                 <a href="https://www.facebook.com/p/SH-Service-100083445484335/" target="_blank" rel="noopener noreferrer" className="flex items-baseline gap-6 group">
                   <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-stone-500 w-24 shrink-0">Sosialt</span>
-                  <span className="text-base text-white underline underline-offset-4 group-hover:text-red-500 transition-colors">SH Service på Facebook</span>
+                  <span className="text-base text-white underline underline-offset-4 group-hover:text-brand-light transition-colors">SH Service på Facebook</span>
                 </a>
               </div>
             </Reveal>
-            <Reveal delay={120} className="overflow-hidden border border-stone-800 h-full min-h-[480px]">
+            <Reveal delay={120}>
+              <ContactForm />
+            </Reveal>
+            </div>
+            <Reveal delay={80} className="overflow-hidden border border-stone-800 mt-14 h-[420px]">
               <iframe
                 title="SH Bilpleie — Sortland"
                 src="https://maps.google.com/maps?q=Sortland%208400&t=&z=12&ie=UTF8&iwloc=B&output=embed"
                 width="100%" height="100%"
-                style={{ border: 0, display: "block", minHeight: "480px", filter: "invert(0.92) hue-rotate(180deg)" }}
+                style={{ border: 0, display: "block", minHeight: "420px", filter: "invert(0.92) hue-rotate(180deg)" }}
                 loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen
               />
             </Reveal>
@@ -270,13 +273,14 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-stone-950 text-stone-500 py-10 px-6 text-center text-xs border-t border-stone-800">
+      <footer className="bg-stone-950 text-stone-500 py-12 px-6 text-center text-xs border-t border-stone-800">
+        <Image src="/img/logo.png" alt="SH Bilpleie" width={240} height={72} className="h-12 md:h-14 w-auto mx-auto mb-6 opacity-90" />
         <p className="uppercase tracking-[0.3em] mb-2 font-bold text-stone-300">SH Bilpleie og Service Halvorsen</p>
         <p className="font-mono">Sortland · Vesterålen · 915 34 263 · Shbilpleievesteraalen@gmail.com</p>
         <p className="mt-3 opacity-60">© {new Date().getFullYear()} SH Bilpleie og Service Halvorsen</p>
       </footer>
 
-      <a href="tel:+4791534263" className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-red-600 text-white flex items-center justify-center gap-3 py-4 font-bold uppercase tracking-[0.2em] text-sm">
+      <a href="tel:+4791534263" className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-brand text-white flex items-center justify-center gap-3 py-4 font-bold uppercase tracking-[0.2em] text-sm">
         Ring · <span className="font-mono tracking-normal">915 34 263</span>
       </a>
     </div>

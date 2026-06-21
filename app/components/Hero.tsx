@@ -52,7 +52,7 @@ export default function Hero() {
       <div ref={fgRef} className="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-end pb-24" style={{ willChange: "transform" }}>
         <div className="overflow-hidden">
           <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.5em] text-stone-300 hero-line" style={{ animationDelay: "120ms" }}>
-            <span className="h-px w-12 bg-red-500" />
+            <span className="h-px w-12 bg-brand" />
             <span>Detailing · Vesterålen</span>
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function Hero() {
           </p>
         </div>
         <div className="flex flex-wrap gap-3 items-center mt-10 hero-line" style={{ animationDelay: "620ms" }}>
-          <a href="tel:+4791534263" className="inline-flex items-center gap-3 px-7 py-4 bg-red-600 text-white hover:bg-red-500 transition-colors font-bold">
+          <a href="tel:+4791534263" className="inline-flex items-center gap-3 px-7 py-4 bg-brand text-white hover:bg-brand-light transition-colors font-bold">
             <span className="text-xs uppercase tracking-[0.25em]">Ring</span>
             <span className="text-lg font-mono">915 34 263</span>
           </a>
