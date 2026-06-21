@@ -50,17 +50,15 @@ export default function Hero() {
 
       {/* foreground content */}
       <div ref={fgRef} className="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-end pb-24" style={{ willChange: "transform" }}>
-        <div className="overflow-hidden">
-          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.5em] text-stone-300 hero-line" style={{ animationDelay: "120ms" }}>
-            <span className="h-px w-12 bg-brand" />
-            <span>Detailing · Vesterålen</span>
-          </div>
+        <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.5em] text-stone-300 hero-line" style={{ animationDelay: "120ms" }}>
+          <span className="h-px w-12 bg-brand" />
+          <span>Detailing · Vesterålen</span>
         </div>
-        <h1 className="font-bold text-white mt-6" style={{ fontSize: "clamp(3.2rem, 10vw, 9rem)", letterSpacing: "-0.045em", lineHeight: 0.9 }}>
-          <span className="block overflow-hidden"><span className="block hero-line" style={{ animationDelay: "220ms" }}>Lakk som</span></span>
-          <span className="block overflow-hidden"><span className="block italic font-light text-stone-300 hero-line" style={{ animationDelay: "340ms" }}>fanger lyset.</span></span>
+        <h1 className="font-bold text-white mt-6" style={{ fontSize: "clamp(3.2rem, 10vw, 9rem)", letterSpacing: "-0.045em", lineHeight: 0.96 }}>
+          <span className="block hero-line" style={{ animationDelay: "220ms" }}>Lakk som</span>
+          <span className="block italic font-light text-stone-300 hero-line pb-[0.08em]" style={{ animationDelay: "340ms" }}>fanger lyset.</span>
         </h1>
-        <div className="overflow-hidden mt-8 max-w-xl">
+        <div className="mt-8 max-w-xl">
           <p className="text-lg md:text-xl text-stone-200 leading-relaxed hero-line" style={{ animationDelay: "480ms" }}>
             Polering, keramisk coating og interiør på et nivå Vesterålen ikke har sett før.
             Lever inn hverdagsbilen — eller drømmebilen.
@@ -84,7 +82,7 @@ export default function Hero() {
       </div>
 
       <style>{`
-        .hero-line { opacity: 0; transform: translateY(110%); animation: heroUp .95s cubic-bezier(.16,1,.3,1) forwards; }
+        .hero-line { opacity: 0; transform: translateY(28px); animation: heroUp .9s cubic-bezier(.16,1,.3,1) forwards; }
         @keyframes heroUp { to { opacity: 1; transform: translateY(0); } }
         .scroll-cue { transform-origin: top; animation: cue 1.8s ease-in-out infinite; }
         @keyframes cue { 0%,100%{ transform: scaleY(.4); opacity:.4 } 50%{ transform: scaleY(1); opacity:1 } }

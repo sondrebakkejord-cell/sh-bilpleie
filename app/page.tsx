@@ -95,10 +95,10 @@ export default function Home() {
         </section>
 
         {/* Parallax interstitial 1 */}
-        <section className="relative h-[78vh] overflow-hidden bg-stone-950">
-          <Parallax speed={0.22} className="absolute inset-x-0 -top-[22%] h-[144%]">
+        <section className="relative h-[82vh] overflow-hidden bg-stone-950">
+          <Parallax speed={0.1} className="absolute inset-x-0 -top-[8%] h-[116%]">
             <div className="relative w-full h-full">
-              <Image src="/img/ferrari.jpg" alt="Ferrari hos SH Bilpleie" fill sizes="100vw" className="object-cover" />
+              <Image src="/img/ferrari.jpg" alt="Ferrari hos SH Bilpleie" fill sizes="100vw" className="object-cover object-[center_42%]" />
             </div>
           </Parallax>
           <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-950/45 to-stone-950/70" />
@@ -143,10 +143,10 @@ export default function Home() {
         </section>
 
         {/* Parallax interstitial 2 */}
-        <section className="relative h-[72vh] overflow-hidden bg-stone-950">
-          <Parallax speed={0.2} className="absolute inset-x-0 -top-[22%] h-[144%]">
+        <section className="relative h-[80vh] overflow-hidden bg-stone-950">
+          <Parallax speed={0.1} className="absolute inset-x-0 -top-[8%] h-[116%]">
             <div className="relative w-full h-full">
-              <Image src="/img/brabus1.jpg" alt="Brabus G hos SH Bilpleie" fill sizes="100vw" className="object-cover" />
+              <Image src="/img/brabus1.jpg" alt="Brabus G hos SH Bilpleie" fill sizes="100vw" className="object-cover object-center" />
             </div>
           </Parallax>
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-stone-950/70" />
